@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.paimp.project4.MainActivity"
+    android:orientation="vertical">
+
+    <!-- Vue Titre -->
+    <TextView
+        android:id="@+id/titre"
+        style="@style/titre"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Labyrinthe"
+        />
+
+    <!-- Vue Labyrinthe -->
+
+    <!-- Layout Horizontale -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="1">
+
+            <!-- Vue Caractéristique du personnage -->
+
+            <TableLayout
+                android:id="@+id/labyrinthe"
+                android:layout_width="343dp"
+                android:layout_height="match_parent"></TableLayout>
+
+            <TableLayout
+                android:id="@+id/character"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"></TableLayout>
+
+            <!-- Vue des déplacements -->
+            <!-- Vue Potion -->
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TableLayout
+                android:id="@+id/move"
+                android:layout_width="343dp"
+                android:layout_height="match_parent">
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView />
+
+                    <ImageButton
+                        android:id="@+id/moveTop"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:srcCompat="@drawable/haut_little" />
+
+                    <ImageView />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageButton
+                        android:id="@+id/moveLeft"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:srcCompat="@drawable/gauche_little" />
+
+                    <ImageView />
+
+                    <ImageButton
+                        android:id="@+id/moveRight"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:srcCompat="@drawable/droite_little" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView />
+
+                    <ImageButton
+                        android:id="@+id/moveBottom"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:srcCompat="@drawable/bas_little" />
+
+                    <ImageView />
+                </TableRow>
+
+            </TableLayout>
+
+            <TableLayout
+                android:id="@+id/layoutPotion"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TableRow>
+
+                    <Button
+                        android:id="@+id/potion"
+                        android:layout_width="200dp"
+                        android:layout_height="68dp"
+                        android:text="@string/potion" />
+
+                </TableRow>
+            </TableLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

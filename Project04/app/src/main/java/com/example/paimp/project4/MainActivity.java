@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
     int x;
     int y;
 
-    // Poition disponible
+    // Potion disponible
     private final static int POTIONFORCE = 2;
     private final static int  POTIONPV = 2;
     private final static int  POTIONPM = 2;
@@ -362,7 +362,7 @@ public class MainActivity extends AppCompatActivity {
         public void onClick(View v){
             layoutPotion = (TableLayout) findViewById(R.id.layoutPotion);
             layoutPotion.removeAllViews();
-
+            boutonPotions();
         }
     };
 
@@ -396,5 +396,16 @@ public class MainActivity extends AppCompatActivity {
         btnClose.setText("Fermer");
         LigneClose.addView(btnClose);
         btnClose.setOnClickListener(listener_close);
+    }
+
+    private void boutonPotions(){
+
+        layoutPotion = (TableLayout) findViewById(R.id.layoutPotion);
+        TableRow LigneBoutonPotion = new TableRow(this);
+        layoutPotion.addView(LigneBoutonPotion);
+        btnPotion = new Button(this);
+        btnPotion.setText("Potion");
+        LigneBoutonPotion.addView(btnPotion);
+        btnPotion.setOnClickListener(listener_btnPotion);
     }
 }
