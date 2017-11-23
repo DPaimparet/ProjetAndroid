@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.paimp.project3.MainActivity"
+    android:orientation="vertical">
+
+    <!-- Vue Titre -->
+    <TextView
+        android:id="@+id/titre"
+        style="@style/titre"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Labyrinthe"
+        />
+
+    <!-- Vue Labyrinthe -->
+    <TableLayout
+        android:id="@+id/labyrinthe"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    </TableLayout>
+
+    <!-- Layout Horizontale -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="1">
+
+        <!-- Vue Caractéristique du personnage -->
+        <TableLayout
+            android:id="@+id/character"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+        </TableLayout>
+
+        <!-- Vue des déplacements -->
+        <TableLayout
+            android:id="@+id/move"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView />
+
+                <ImageButton
+                    android:id="@+id/imageButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/haut_little" />
+
+                <ImageView />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageButton
+                    android:id="@+id/imageButton2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/gauche_little" />
+
+                <ImageView />
+
+                <ImageButton
+                    android:id="@+id/imageButton3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/droite_little" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView />
+
+                <ImageButton
+                    android:id="@+id/imageButton4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/bas_little" />
+
+                <ImageView />
+            </TableRow>
+
+        </TableLayout>
+
+    </LinearLayout>
+
+</LinearLayout>
