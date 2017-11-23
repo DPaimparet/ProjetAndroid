@@ -2,26 +2,26 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.example.paimp.project3.MainActivity"
-    android:orientation="vertical">
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:gravity="center|start|end"
+    android:orientation="vertical"
+    tools:context="com.example.paimp.project3.MainActivity">
 
     <!-- Vue Titre -->
     <TextView
         android:id="@+id/titre"
         style="@style/titre"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Labyrinthe"
-        />
+        android:layout_height="match_parent"
+        android:text="@string/labyrinthe" />
 
     <!-- Vue Labyrinthe -->
     <TableLayout
         android:id="@+id/labyrinthe"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-    </TableLayout>
+        android:layout_height="265dp"
+        android:gravity="center"></TableLayout>
 
     <!-- Layout Horizontale -->
     <LinearLayout
@@ -33,8 +33,10 @@
         <!-- Vue Caractéristique du personnage -->
         <TableLayout
             android:id="@+id/character"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_width="172dp"
+            android:layout_height="match_parent"
+            android:gravity="center|fill">
+
         </TableLayout>
 
         <!-- Vue des déplacements -->

@@ -2,10 +2,10 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.example.paimp.project3.MainActivity"
-    android:orientation="vertical">
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    tools:context="com.example.paimp.project3.MainActivity">
 
     <!-- Vue Titre -->
     <TextView
@@ -13,84 +13,95 @@
         style="@style/titre"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Labyrinthe"
-        />
+        android:text="Labyrinthe" />
 
     <!-- Vue Labyrinthe -->
-    <TableLayout
-        android:id="@+id/labyrinthe"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-    </TableLayout>
 
     <!-- Layout Vertical -->
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:weightSum="1">
-        <!-- Vue Caractéristique du personnage -->
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
         <TableLayout
-            android:id="@+id/character"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-        </TableLayout>
+            android:id="@+id/labyrinthe"
+            android:layout_width="359dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="horizontal"></TableLayout>
 
-        <!-- Vue des déplacements -->
-        <TableLayout
-            android:id="@+id/move"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-
-            <TableRow
+        <LinearLayout
+            android:layout_width="246dp"
+            android:layout_height="252dp"
+            android:orientation="vertical"
+            android:weightSum="1">
+            <!-- Vue Caractéristique du personnage -->
+            <TableLayout
+                android:id="@+id/character"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="90dp"
+                android:gravity="center"></TableLayout>
 
-                <ImageView />
+            <!-- Vue des déplacements -->
 
-                <ImageButton
-                    android:id="@+id/imageButton"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:srcCompat="@drawable/haut_little" />
-
-                <ImageView />
-            </TableRow>
-
-            <TableRow
+            <TableLayout
+                android:id="@+id/move"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="173dp">
 
-                <ImageButton
-                    android:id="@+id/imageButton2"
-                    android:layout_width="wrap_content"
+                <TableRow
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:srcCompat="@drawable/gauche_little" />
+                    android:gravity="center">
 
-                <ImageView />
+                    <ImageView />
 
-                <ImageButton
-                    android:id="@+id/imageButton3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:srcCompat="@drawable/droite_little" />
-            </TableRow>
+                    <ImageButton
+                        android:id="@+id/imageButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:srcCompat="@drawable/haut_little" />
 
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                    <ImageView />
+                </TableRow>
 
-                <ImageView />
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center">
 
-                <ImageButton
-                    android:id="@+id/imageButton4"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:srcCompat="@drawable/bas_little" />
+                    <ImageButton
+                        android:id="@+id/imageButton2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:srcCompat="@drawable/gauche_little" />
 
-                <ImageView />
-            </TableRow>
-        </TableLayout>
+                    <ImageView />
+
+                    <ImageButton
+                        android:id="@+id/imageButton3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:srcCompat="@drawable/droite_little" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center">
+
+                    <ImageView />
+
+                    <ImageButton
+                        android:id="@+id/imageButton4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:srcCompat="@drawable/bas_little" />
+
+                    <ImageView />
+                </TableRow>
+            </TableLayout>
+        </LinearLayout>
     </LinearLayout>
 
 
