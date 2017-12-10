@@ -4,8 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.paimp.project4.MainActivity"
-    android:orientation="vertical">
+    android:background="@color/colorPrimaryDark"
+    android:orientation="vertical"
+    tools:context="com.example.paimp.project4.MainActivity">
 
     <!-- Vue Titre -->
     <TextView
@@ -13,50 +14,48 @@
         style="@style/titre"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Labyrinthe"
-        />
+        android:gravity="center"
+        android:text="Labyrinthe" />
 
     <!-- Vue Labyrinthe -->
-
-    <!-- Layout Horizontale -->
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:gravity="center"
+        android:orientation="horizontal">
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:weightSum="1">
-
-            <!-- Vue Caractéristique du personnage -->
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="@drawable/background"
+            android:gravity="center"
+            android:orientation="vertical">
 
             <TableLayout
                 android:id="@+id/labyrinthe"
-                android:layout_width="343dp"
-                android:layout_height="match_parent"></TableLayout>
-
-            <TableLayout
-                android:id="@+id/character"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"></TableLayout>
-
-            <!-- Vue des déplacements -->
-            <!-- Vue Potion -->
-
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"></TableLayout>
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="@drawable/background_bois_land"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TableLayout
+                android:id="@+id/character"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@android:color/background_light"
+                android:gravity="center"></TableLayout>
 
             <TableLayout
                 android:id="@+id/move"
-                android:layout_width="343dp"
-                android:layout_height="match_parent">
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center">
 
                 <TableRow
                     android:layout_width="match_parent"
@@ -108,24 +107,40 @@
                 </TableRow>
 
             </TableLayout>
+            <!-- Vue Potion -->
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="@drawable/background_pierre"
+            android:gravity="center"
+            android:orientation="vertical">
 
             <TableLayout
                 android:id="@+id/layoutPotion"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center">
 
-                <TableRow>
+                <TableRow
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center">
 
                     <Button
                         android:id="@+id/potion"
-                        android:layout_width="200dp"
-                        android:layout_height="68dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
                         android:text="@string/potion" />
 
                 </TableRow>
             </TableLayout>
         </LinearLayout>
-
     </LinearLayout>
+
+    <!-- Layout Horizontale -->
 
 </LinearLayout>

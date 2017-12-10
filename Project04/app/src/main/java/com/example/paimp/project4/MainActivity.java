@@ -31,8 +31,8 @@ public class MainActivity extends AppCompatActivity {
     int pm = 5;
 
     // Coordonnées du joueur
-    int x;
-    int y;
+    int coordLig;
+    int coordCol;
 
     // Potion disponible
     private final static int POTIONFORCE = 2;
@@ -91,12 +91,12 @@ public class MainActivity extends AppCompatActivity {
      *                      Initialisation du jeu
      ****************************************************************/
     public void init(){
-        x=4;
-        y=7;
+        coordLig=4;
+        coordCol=7;
         potionForce = POTIONFORCE;
         potionPV = POTIONPV;
         potionPM = POTIONPM;
-        drawMap(x,y,1);
+        drawMap(coordLig,coordCol,1);
         chargerCaractere();
     }
 
@@ -214,7 +214,7 @@ public class MainActivity extends AppCompatActivity {
 
     ////////////////////////////////////////////// 2. Puis-je me déplacer    ///////////////////////////////////////////////////
     public boolean  checkMove(){
-        if(map[x][y] == 1)
+        if(map[coordLig][coordCol] == 1)
             return true;
         else
             return  false;
@@ -224,17 +224,17 @@ public class MainActivity extends AppCompatActivity {
     private View.OnClickListener listener_btnTop = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            x--;
+            coordLig--;
             if(checkMove()){
-                map[x+1][y]=1;
-                map [x][y]=3;
+                map[coordLig+1][coordCol]=1;
+                map [coordLig][coordCol]=3;
                 layoutLabirynthe.removeAllViews();
-                drawMap(x,y,4);
+                drawMap(coordLig,coordCol,4);
             }
             else{
-                x++;
+                coordLig++;
                 layoutLabirynthe.removeAllViews();
-                drawMap(x,y,4);
+                drawMap(coordLig,coordCol,4);
             }
         }
     };
@@ -242,17 +242,17 @@ public class MainActivity extends AppCompatActivity {
     private View.OnClickListener listener_btnRight = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            y++;
+            coordCol++;
             if(checkMove()){
-                map[x][y-1]=1;
-                map [x][y]=3;
+                map[coordLig][coordCol-1]=1;
+                map [coordLig][coordCol]=3;
                 layoutLabirynthe.removeAllViews();
-                drawMap(x,y,3);
+                drawMap(coordLig,coordCol,3);
             }
             else{
-                y--;
+                coordCol--;
                 layoutLabirynthe.removeAllViews();
-                drawMap(x,y,3);
+                drawMap(coordLig,coordCol,3);
             }
 
         }
@@ -261,17 +261,17 @@ public class MainActivity extends AppCompatActivity {
     private View.OnClickListener listener_btnLeft = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            y--;
+            coordCol--;
             if(checkMove()){
-                map[x][y+1]=1;
-                map [x][y]=3;
+                map[coordLig][coordCol+1]=1;
+                map [coordLig][coordCol]=3;
                 layoutLabirynthe.removeAllViews();
-                drawMap(x,y,2);
+                drawMap(coordLig,coordCol,2);
             }
             else{
-                y++;
+                coordCol++;
                 layoutLabirynthe.removeAllViews();
-                drawMap(x,y,2);
+                drawMap(coordLig,coordCol,2);
             }
 
         }
@@ -280,17 +280,17 @@ public class MainActivity extends AppCompatActivity {
     private View.OnClickListener listener_btnBottom = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            x++;
+            coordLig++;
             if(checkMove()){
-                map[x-1][y]=1;
-                map [x][y]=3;
+                map[coordLig-1][coordCol]=1;
+                map [coordLig][coordCol]=3;
                 layoutLabirynthe.removeAllViews();
-                drawMap(x,y,1);
+                drawMap(coordLig,coordCol,1);
             }
             else{
-                x--;
+                coordLig--;
                 layoutLabirynthe.removeAllViews();
-                drawMap(x,y,1);
+                drawMap(coordLig,coordCol,1);
             }
         }
     };
@@ -333,7 +333,7 @@ public class MainActivity extends AppCompatActivity {
             layoutPotion = (TableLayout) findViewById(R.id.layoutPotion);
             layoutPotion.removeAllViews();
             if(potionPV > 0){
-                pv++;
+                pv+=10;
                 potionPV--;
             }
             layoutCharacter.removeAllViews();
@@ -348,7 +348,7 @@ public class MainActivity extends AppCompatActivity {
             layoutPotion = (TableLayout) findViewById(R.id.layoutPotion);
             layoutPotion.removeAllViews();
             if(potionPM > 0){
-                pm++;
+                pm+=10;
                 potionPM--;
             }
             layoutCharacter.removeAllViews();
@@ -372,21 +372,21 @@ public class MainActivity extends AppCompatActivity {
         TableRow LignePotionForce = new TableRow(this);
         layoutPotion.addView(LignePotionForce);
         btnPotionForce = new Button(this);
-        btnPotionForce.setText("Potion de Force " + potionForce + " / " + POTIONFORCE);
+        btnPotionForce.setText("Force " + potionForce + " / " + POTIONFORCE);
         LignePotionForce.addView(btnPotionForce);
         btnPotionForce.setOnClickListener(listener_btnPotion_force);
 
         TableRow LignePotionPV = new TableRow(this);
         layoutPotion.addView(LignePotionPV);
         btnPotionPV = new Button(this);
-        btnPotionPV.setText("Potion de Vie " + potionPV + " / " + POTIONPV);
+        btnPotionPV.setText("Vie " + potionPV + " / " + POTIONPV);
         LignePotionPV.addView(btnPotionPV);
         btnPotionPV.setOnClickListener(listener_btnPotion_pv);
 
         TableRow LignePotionPM = new TableRow(this);
         layoutPotion.addView(LignePotionPM);
         btnPotionPM = new Button(this);
-        btnPotionPM.setText("Potion de Mana " + potionPM + " / " + POTIONPM);
+        btnPotionPM.setText("Mana " + potionPM + " / " + POTIONPM);
         LignePotionPM.addView(btnPotionPM);
         btnPotionPM.setOnClickListener(listener_btnPotion_pm);
 

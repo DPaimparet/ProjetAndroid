@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Project4</string>
-    <string name="force">Force</string>
-    <string name="defence">Defence</string>
+    <string name="force">Strength</string>
+    <string name="defence">Defense</string>
     <string name="pv">PV</string>
     <string name="pm">PM</string>
     <string name="potion">potion</string>

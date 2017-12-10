@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:gravity="center|start|end"
     android:orientation="vertical"
@@ -13,27 +13,36 @@
         android:id="@+id/titre"
         style="@style/titre"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
         android:text="@string/labyrinthe" />
 
     <!-- Vue Labyrinthe -->
-    <TableLayout
-        android:id="@+id/labyrinthe"
-        android:layout_width="match_parent"
-        android:layout_height="265dp"
-        android:gravity="center"></TableLayout>
+    <LinearLayout
+        android:id="@+id/layout_labyrinthe"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center">
 
+        <TableLayout
+            android:id="@+id/labyrinthe"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"></TableLayout>
+
+    </LinearLayout>
     <!-- Layout Horizontale -->
     <LinearLayout
-        android:layout_width="match_parent"
+        android:id="@+id/layout_infoDeplacement"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:orientation="horizontal"
         android:weightSum="1">
 
         <!-- Vue Caractéristique du personnage -->
         <TableLayout
             android:id="@+id/character"
-            android:layout_width="172dp"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center|fill">
 
@@ -42,8 +51,8 @@
         <!-- Vue des déplacements -->
         <TableLayout
             android:id="@+id/move"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
             <TableRow
                 android:layout_width="match_parent"

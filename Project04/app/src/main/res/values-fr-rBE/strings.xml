@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Projet4</string>
+    <string name="force">Force</string>
+    <string name="defence">Défense</string>
+    <string name="pv">PV</string>
+    <string name="pm">PM</string>
+    <string name="potion">potion</string>
+</resources>

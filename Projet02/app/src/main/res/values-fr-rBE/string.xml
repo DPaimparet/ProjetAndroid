@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Projet 02</string>
+    <string name="titre">Sélectionnez un personnage</string>
+    <string name="story_knight">Le chevalier est un redoutable combatant corps à corps, son armure lui permet d\'encaisser plus de coup qu\'un autre personnage.</string>
+    <string name="story_priest">Le prêtre est un héro qui à un rôle de soigneur et peux faire des attaques à distance</string>
+    <string name="defence">Défense:</string>
+    <string name="strength">Force :</string>
+    <string name="health">Santé :</string>
+    <string name="magic">Magie :</string>
+    <string name="confirmBtn">Confirmer la sélection</string>
+    <string name="knight">Chevalier</string>
+    <string name="priest">Prêtre</string>
+    <string name="select">Une classe doit être sélectionnée</string>
+    <string name="select_priest">Le prêtre est sélectionné</string>
+    <string name="select_knight">Le chevalier est sélectionné</string>
+</resources>

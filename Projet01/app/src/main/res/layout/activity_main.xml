@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     tools:context="com.example.paimp.projet01.MainActivity"
     >
 
@@ -76,7 +76,7 @@
                     android:id="@+id/histoireGuerrier"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/story_warrior" />
+                    android:text="@string/story_knight" />
 
 
                 <TableLayout
@@ -101,32 +101,31 @@
 
                         <TextView
                             android:id="@+id/physiqueGuerrier"
-                            android:layout_width="wrap_content"
+                            android:layout_width="80dp"
                             android:layout_height="wrap_content"
                             android:layout_column="0"
                             android:text="@string/strength" />
 
                         <TextView
                             android:id="@+id/notePhysiqueGuerrier"
-                            android:layout_width="wrap_content"
+                            android:layout_width="30dp"
                             android:layout_height="wrap_content"
                             android:layout_column="1"
                             android:text="19 " />
 
                         <TextView
                             android:id="@+id/pointVieGuerrier"
-                            android:layout_width="match_parent"
+                            android:layout_width="80dp"
                             android:layout_height="wrap_content"
                             android:layout_column="2"
                             android:text="@string/health" />
 
                         <TextView
                             android:id="@+id/notePointDeVieGuerrier"
-                            android:layout_width="wrap_content"
+                            android:layout_width="30dp"
                             android:layout_height="wrap_content"
                             android:layout_column="3"
                             android:text="35 " />
-
                     </TableRow>
 
                     <TableRow
@@ -203,14 +202,14 @@
 
                         <TextView
                             android:id="@+id/textView2"
-                            android:layout_width="wrap_content"
+                            android:layout_width="80dp"
                             android:layout_height="wrap_content"
                             android:layout_column="0"
                             android:text="@string/strength" />
 
                         <TextView
                             android:id="@+id/textView3"
-                            android:layout_width="wrap_content"
+                            android:layout_width="30dp"
                             android:layout_height="wrap_content"
                             android:layout_column="1"
                             android:text="5 " />
@@ -224,7 +223,7 @@
 
                         <TextView
                             android:id="@+id/textView5"
-                            android:layout_width="wrap_content"
+                            android:layout_width="30dp"
                             android:layout_height="wrap_content"
                             android:layout_column="3"
                             android:text="20 " />
@@ -264,10 +263,9 @@
                 </TableLayout>
 
                 <Button
-                    android:id="@+id/button"
+                    android:id="@+id/btn_confirmation"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-
                     android:layout_marginBottom="8dp"
                     android:layout_marginTop="8dp"
                     android:elevation="7dp"

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Select display</string>
+    <string name="app_jeu">Game</string>
+    <string name="titre">Select character class</string>
+    <string name="story_knight">The knight is a formidable hand-to-hand combatant, his armor allows him to take more hit than any other character.</string>
+    <string name="story_priest">The priest is a hero who has a role of healer and can do ranged attacks</string>
+    <string name="defence">Defence :</string>
+    <string name="strength">strength :</string>
+    <string name="health">health :</string>
+    <string name="magic">magic :</string>
+    <string name="potion">potion</string>
+    <string name="confirmBtn">Confirm Selection</string>
+    <string name="knight">Knight</string>
+    <string name="priest">Priest</string>
+    <string name="select">One class must be selected</string>
+    <string name="select_priest">The priest is selected</string>
+    <string name="select_knight">The knight is selected</string>
+</resources>
