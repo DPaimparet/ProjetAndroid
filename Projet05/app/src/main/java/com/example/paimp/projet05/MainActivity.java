@@ -68,11 +68,11 @@ public class MainActivity extends AppCompatActivity {
                                                  public void onClick(View v) {
 
                                                      if(ck_knight.isChecked()) {
-                                                         personnage = new Personnage("chevalier",1,19,0,35,18,2,2,2,0,4,7,1);
+                                                         personnage = new Personnage("chevalier",1,19,0,35,18,2,2,2,0,7,4,1);
                                                          initIntent(personnage);
                                                      }
                                                      else if(ck_priest.isChecked()){
-                                                         personnage = new Personnage("pretre",1,5,20,5,10,2,2,2,0,4,7,1);
+                                                         personnage = new Personnage("pretre",1,5,20,5,10,2,2,2,0,7,4,1);
                                                          initIntent(personnage);
                                                      }
                                                      else{

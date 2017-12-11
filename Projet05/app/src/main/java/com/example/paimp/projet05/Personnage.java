@@ -163,15 +163,15 @@ public class Personnage {
 
     //////////////////////////  Partie déplacement du personnage ///////////////////////
     public void upPerso(){
-        setCoordY(getCoordY()-1);
+        coordY--;
     }
     public void downPerso(){
-        setCoordY(getCoordY()+1);
+        coordY++;
     }
     public void leftPerso(){
-        setCoordX(getCoordX()-1);
+       coordX--;
     }
     public void rightPerso(){
-        setCoordX(getCoordX()+1);
+        coordX++;
     }
 }

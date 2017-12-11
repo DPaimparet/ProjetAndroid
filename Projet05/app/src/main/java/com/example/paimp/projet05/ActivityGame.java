@@ -28,19 +28,12 @@ public class ActivityGame extends AppCompatActivity {
             {0,0,0,0,0,0,0,0,0,0,0,0,0}
     };
 
-    // Joueur
     private Personnage personnage;
-
-     // pour dessiner le tilt
     private int coordLig;
     private int coordCol;
-
-    // Potion disponible
     private final static int POTIONFORCE = 2;
     private final static int  POTIONPV = 2;
     private final static int  POTIONPM = 2;
-
-    // Différents layout
     private TableLayout layoutLabirynthe;
     private TableLayout layoutCharacter;
     private TableLayout tabMove;
@@ -92,7 +85,7 @@ public class ActivityGame extends AppCompatActivity {
      ****************************************************************/
     public void init(Intent intent){
         initJoueur(intent);
-        dessinerMap(coordCol,coordLig,1);
+        dessinerMap(coordLig,coordCol,1);
         chargerVueCaracteristiqueJoueur();
     }
     /***********************************************************************************
@@ -244,11 +237,11 @@ public class ActivityGame extends AppCompatActivity {
         public void onClick(View v) {
             coordLig--;
             if(checkMove()){
+                personnage.upPerso();
                 map[coordLig+1][coordCol]=1;
                 map [coordLig][coordCol]=3;
                 layoutLabirynthe.removeAllViews();
                 dessinerMap(coordLig,coordCol,4);
-                personnage.upPerso();
             }
             else{
                 coordLig++;
@@ -263,11 +256,11 @@ public class ActivityGame extends AppCompatActivity {
         public void onClick(View v) {
             coordCol++;
             if(checkMove()){
+                personnage.rightPerso();
                 map[coordLig][coordCol-1]=1;
                 map [coordLig][coordCol]=3;
                 layoutLabirynthe.removeAllViews();
                 dessinerMap(coordLig,coordCol,3);
-                personnage.rightPerso();
             }
             else{
                 coordCol--;
@@ -283,11 +276,11 @@ public class ActivityGame extends AppCompatActivity {
         public void onClick(View v) {
             coordCol--;
             if(checkMove()){
+                personnage.leftPerso();
                 map[coordLig][coordCol+1]=1;
                 map [coordLig][coordCol]=3;
                 layoutLabirynthe.removeAllViews();
                 dessinerMap(coordLig,coordCol,2);
-                personnage.leftPerso();
             }
             else{
                 coordCol++;
@@ -303,11 +296,11 @@ public class ActivityGame extends AppCompatActivity {
         public void onClick(View v) {
             coordLig++;
             if(checkMove()){
+                personnage.downPerso();
                 map[coordLig-1][coordCol]=1;
                 map [coordLig][coordCol]=3;
                 layoutLabirynthe.removeAllViews();
                 dessinerMap(coordLig,coordCol,1);
-                personnage.downPerso();
             }
             else{
                 coordLig--;
