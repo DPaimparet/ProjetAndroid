@@ -227,26 +227,26 @@ public class Game extends AppCompatActivity {
                     case 0:
                         image.setImageResource(R.drawable.tile_rocher);
                         tr.addView(image);
-                        image.getLayoutParams().height= 60;
-                        image.getLayoutParams().width=60;
+                        image.getLayoutParams().height= (int) getResources().getDimension(R.dimen.imageview_height);
+                        image.getLayoutParams().width=(int) getResources().getDimension(R.dimen.imageview_width);
                         break;
                     case 1:
                         image.setImageResource(R.drawable.tile_chemin);
                         tr.addView(image);
-                        image.getLayoutParams().height=60;
-                        image.getLayoutParams().width=60;
+                        image.getLayoutParams().height=(int) getResources().getDimension(R.dimen.imageview_height);
+                        image.getLayoutParams().width=(int) getResources().getDimension(R.dimen.imageview_width);
                         break;
                     case 2:
                         image.setImageResource(R.drawable.tile_arbre);
                         tr.addView(image);
-                        image.getLayoutParams().height=60;
-                        image.getLayoutParams().width=60;
+                        image.getLayoutParams().height=(int) getResources().getDimension(R.dimen.imageview_height);
+                        image.getLayoutParams().width=(int) getResources().getDimension(R.dimen.imageview_width);
                         break;
                     case 4:
                         image.setImageResource(R.drawable.perle_petite);
                         tr.addView(image);
-                        image.getLayoutParams().height=60;
-                        image.getLayoutParams().width=60;
+                        image.getLayoutParams().height=(int) getResources().getDimension(R.dimen.imageview_height);
+                        image.getLayoutParams().width=(int) getResources().getDimension(R.dimen.imageview_width);
                         break;
                     default:
                         btnPerso = new ImageView(this);
@@ -266,8 +266,8 @@ public class Game extends AppCompatActivity {
                         }
                         tr.addView(btnPerso);
                         btnPerso.setOnClickListener(listener_btnPerso);
-                        btnPerso.getLayoutParams().height=60;
-                        btnPerso.getLayoutParams().width=60;
+                        btnPerso.getLayoutParams().height=(int) getResources().getDimension(R.dimen.imageview_height);
+                        btnPerso.getLayoutParams().width=(int) getResources().getDimension(R.dimen.imageview_width);
                         break;
                 }
             }

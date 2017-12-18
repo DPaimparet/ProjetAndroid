@@ -84,7 +84,7 @@ public class InfoJoueur extends AppCompatActivity {
     private void imageDeClasse(){
         img_classe = findViewById(R.id.img_classe);
         if(mJoueur.getClasse().equals("Chevalier"))
-            img_classe.setImageResource(R.drawable.hero_warrior2);
+            img_classe.setImageResource(R.drawable.hero_warrior_normal);
         else
             img_classe.setImageResource(R.drawable.priest);
     }

@@ -23,7 +23,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="Labyrinthe" />
+            android:text="Labyrinthe"
+            android:textSize="@dimen/txt_titre" />
 
     </LinearLayout>
 
@@ -37,14 +38,14 @@
         <!-- Vue Labyrinthe -->
         <LinearLayout
             android:id="@+id/layout_labyrinthe"
-            android:layout_width="528dp"
+            android:layout_width="773dp"
             android:layout_height="match_parent"
             android:orientation="vertical">
 
             <LinearLayout
                 android:id="@+id/layout_content_labyrinthe"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="270dp"
                 android:background="@drawable/background"
                 android:gravity="center"
                 android:orientation="horizontal">
@@ -179,7 +180,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:gravity="center"
-                        android:text="@string/potion" />
+                        android:text="@string/potion"
+                        android:textSize="@dimen/txt_size"/>
 
                 </TableRow>
             </TableLayout>

@@ -70,7 +70,7 @@
                     android:id="@+id/imageGuerrier"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:srcCompat="@drawable/hero_warrior_normal" />
+                    app:srcCompat="@drawable/hero_warrior2" />
 
                 <TextView
                     android:id="@+id/histoireGuerrier"
