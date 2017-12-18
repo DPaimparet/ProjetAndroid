@@ -12,6 +12,8 @@ import com.example.paimp.projet08.R;
 import com.example.paimp.projet08.model.CheckLoginTask;
 import com.example.paimp.projet08.model.Login;
 
+import java.util.concurrent.ExecutionException;
+
 public class LoginActivity extends AppCompatActivity{
 
     private EditText mUserView = null;
@@ -45,7 +47,13 @@ public class LoginActivity extends AppCompatActivity{
 
             if(!TextUtils.isEmpty(username) && checkPassword(password)){
                 mLogin = new Login(username,password);
-                new CheckLoginTask(LoginActivity.this).execute(mLogin);
+                try {
+                    new CheckLoginTask(LoginActivity.this).execute(mLogin).get();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                } catch (ExecutionException e) {
+                    e.printStackTrace();
+                }
             }else if (!TextUtils.isEmpty(username) && !checkPassword(password)){
                 Toast.makeText(LoginActivity.this,R.string.fields_password,Toast.LENGTH_SHORT).show();
             }else{

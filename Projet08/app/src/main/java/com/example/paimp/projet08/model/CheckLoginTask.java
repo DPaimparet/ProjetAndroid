@@ -25,7 +25,7 @@ import java.util.Scanner;
  * Created by Paimp on 16-12-17.
  */
 
-public class CheckLoginTask extends AsyncTask<Object , Void , String> {
+public class CheckLoginTask extends AsyncTask<Login , Void , String> {
     LoginActivity activite;
 
 
@@ -34,9 +34,10 @@ public class CheckLoginTask extends AsyncTask<Object , Void , String> {
     }
 
     @Override
-    protected String doInBackground(Object... login) {
+    protected String doInBackground(Login... login) {
         String url_login = "http://10.0.2.2:8080/android/login.php";
         String reponse="";
+        Login mLogin = login[0];
         try{
             URL url = new URL(url_login);
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
@@ -45,21 +46,25 @@ public class CheckLoginTask extends AsyncTask<Object , Void , String> {
             connection.setRequestMethod("POST");
             connection.setConnectTimeout(5000);
             connection.setReadTimeout(5000);
-            connection.setDoInput(true);
-            connection.setDoOutput(true);
 
             ///////////////// Connexion  /////////////////
             connection.connect();
 
             int responseCode = connection.getResponseCode();
+            System.out.println(responseCode);
+            System.out.println(mLogin.getUserName());
+            System.out.println(mLogin.getPassword());
+
             if (responseCode == 200)
             {
 
                 ///////////////// requête  /////////////////
-                /*
+
                 OutputStream os = connection.getOutputStream();
                 BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(os, "UTF-8"));
-                String parametres_post="";
+                String parametres_post="txtUsername="+mLogin.getUserName()+"&txtPassword="+mLogin.getPassword();
+                connection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
+                connection.setRequestProperty("Content-Length", String.valueOf(parametres_post.length()));
                 writer.write(parametres_post);
                 writer.flush();
                 writer.close();
@@ -71,9 +76,9 @@ public class CheckLoginTask extends AsyncTask<Object , Void , String> {
                 InputStreamReader inputStreamReader;
                 inputStreamReader=new InputStreamReader(inputStream, "UTF-8");
                 Scanner scanner = new Scanner(inputStreamReader);
-                reponse = scanner.toString();
-                */
-                reponse = "succes";
+                reponse = scanner.next();
+                System.out.println(reponse);
+                //reponse = "succes";
             }
             else
             {
