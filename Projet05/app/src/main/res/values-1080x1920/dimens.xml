@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="size_text">14sp</dimen>
+    <dimen name="image_view">20dp</dimen>
+    <dimen name="titre_size">20dp</dimen>
+   <!-- <dimen name="tile_size">100</dimen> -->
+</resources>

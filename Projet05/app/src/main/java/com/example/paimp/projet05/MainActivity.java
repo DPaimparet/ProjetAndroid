@@ -10,11 +10,12 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
-    public final static int ID_REQUETE = 2;
     private CheckBox ck_knight;
     private CheckBox ck_priest;
     private Button btn_confirmation;
     private Personnage personnage;
+    public static final String BUNDLE_STATE_JOUEUR = "BUNDLE_STATE_JOUEUR";
+
 
 
     @Override
@@ -69,11 +70,17 @@ public class MainActivity extends AppCompatActivity {
 
                                                      if(ck_knight.isChecked()) {
                                                          personnage = new Personnage("chevalier",1,19,0,35,18,2,2,2,0,7,4,1);
-                                                         initIntent(personnage);
+                                                         //initIntent(personnage);
+                                                         Intent intent = new Intent(MainActivity.this,ActivityGame.class);
+                                                         intent.putExtra("joueur",personnage);
+                                                         startActivity(intent);
                                                      }
                                                      else if(ck_priest.isChecked()){
                                                          personnage = new Personnage("pretre",1,5,20,5,10,2,2,2,0,7,4,1);
-                                                         initIntent(personnage);
+                                                         //initIntent(personnage);
+                                                         Intent intent = new Intent(MainActivity.this,ActivityGame.class);
+                                                         intent.putExtra("joueur",personnage);
+                                                         startActivity(intent);
                                                      }
                                                      else{
                                                          Toast.makeText(MainActivity.this,R.string.select,Toast.LENGTH_SHORT).show();
@@ -81,29 +88,5 @@ public class MainActivity extends AppCompatActivity {
                                                  }
                                              }
         );
-    }
-
-    /***
-     * Initialise l'objet intent pour envoyer les informations du personnage vers ActivityGame
-     * @param personnage
-     */
-    public void initIntent(Personnage personnage){
-        Intent intent = new Intent(MainActivity.this,ActivityGame.class);
-        intent.putExtra("classe",personnage.getClasse());
-        intent.putExtra("level",personnage.getLevel());
-        intent.putExtra("force",personnage.getForce());
-        intent.putExtra("magie",personnage.getMagie());
-        intent.putExtra("pv",personnage.getMagie());
-        intent.putExtra("pv",personnage.getPv());
-        intent.putExtra("defense",personnage.getDefense());
-        intent.putExtra("pot_force",personnage.getPot_force());
-        intent.putExtra("pot_pv",personnage.getPot_pv());
-        intent.putExtra("pot_pm",personnage.getPot_pm());
-        intent.putExtra("nbr_perle",personnage.getNbr_perle());
-        intent.putExtra("coordX",personnage.getCoordX());
-        intent.putExtra("coordY",personnage.getCoordY());
-        intent.putExtra("map",personnage.getMap());
-        startActivity(intent);
-        startActivityForResult(intent,ID_REQUETE);
     }
 }

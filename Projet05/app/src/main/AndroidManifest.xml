@@ -12,15 +12,18 @@
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".ActivityGame"
             android:label="@string/app_jeu">
         </activity>
-
+        <activity
+            android:name=".InfoJoueur"
+            android:label="@string/app_joueur">
+        </activity>
     </application>
 
 </manifest>

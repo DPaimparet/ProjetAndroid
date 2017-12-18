@@ -1,10 +1,14 @@
 package com.example.paimp.projet05;
 
+import java.io.Serializable;
+
 /**
  * Created by Paimp on 10-12-17.
  */
 
-public class Personnage {
+public class Personnage implements Serializable {
+
+    private static final long serialVersionUID = 1350092881346723535L;
 
     private String classe;
     private int level;

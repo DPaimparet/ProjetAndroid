@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimaryDark"
+    android:orientation="vertical"
+    tools:context=".controller.Game">
+
+    <TextView
+        android:id="@+id/titre"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Labyrinthe" />
+
+    <!-- Vue Labyrinthe -->
+    <LinearLayout
+        android:id="@+id/layout_labyrinthe"
+        android:layout_width="match_parent"
+        android:layout_height="234dp"
+        android:background="@drawable/background"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <TableLayout
+            android:id="@+id/labyrinthe"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+        </TableLayout>
+
+    </LinearLayout>
+
+    <!-- Layout Caractère & déplacement -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="275dp"
+        android:background="@drawable/background_bois"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:weightSum="1">
+
+        <!-- Vue Caractéristique du personnage -->
+
+        <LinearLayout
+            android:id="@+id/layout_character"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@android:color/background_light"
+            android:orientation="vertical">
+
+            <TableLayout
+                android:id="@+id/character"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center">
+
+            </TableLayout>
+
+        </LinearLayout>
+
+        <!-- Vue des déplacements -->
+
+        <LinearLayout
+            android:id="@+id/layout_move"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="100dp"
+            android:orientation="vertical">
+
+            <TableLayout
+                android:id="@+id/move"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center">
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView />
+
+                    <ImageButton
+                        android:id="@+id/moveTop"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:srcCompat="@drawable/haut_little" />
+
+                    <ImageView />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageButton
+                        android:id="@+id/moveLeft"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:srcCompat="@drawable/gauche_little" />
+
+                    <ImageView />
+
+                    <ImageButton
+                        android:id="@+id/moveRight"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:srcCompat="@drawable/droite_little" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView />
+
+                    <ImageButton
+                        android:id="@+id/moveBottom"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:srcCompat="@drawable/bas_little" />
+
+                    <ImageView />
+                </TableRow>
+
+            </TableLayout>
+        </LinearLayout>
+
+        <!-- Vue Potion -->
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout_potion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="vertical">
+
+        <TableLayout
+            android:id="@+id/layoutPotion"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/background_pierre"
+            android:gravity="center">
+
+            <TableRow
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center">
+
+                <Button
+                    android:id="@+id/potion"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="@string/potion" />
+
+            </TableRow>
+        </TableLayout>
+    </LinearLayout>
+
+</LinearLayout>

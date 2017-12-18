@@ -20,10 +20,14 @@ public class ActivityGame extends AppCompatActivity {
     int map [][]= {
             {0,0,0,0,0,0,0,0,0,0,0,0,0},
             {0,2,2,2,2,2,2,2,2,2,2,2,0},
-            {0,2,2,1,1,1,1,1,2,1,2,2,0},
+            {0,2,2,1,1,1,1,1,2,4,2,2,0},
             {0,2,2,1,1,2,2,1,1,1,2,2,0},
             {0,2,2,1,1,2,1,3,1,1,2,2,0},
+            {0,2,2,1,4,1,1,1,0,1,2,2,0},
+            {0,2,2,1,1,1,1,1,0,1,2,2,0},
+            {0,2,2,1,1,1,1,1,1,1,2,2,0},
             {0,2,2,1,1,1,1,1,2,1,2,2,0},
+            {0,2,2,4,1,1,1,1,2,4,2,2,0},
             {0,2,2,2,2,2,2,2,2,2,2,2,0},
             {0,0,0,0,0,0,0,0,0,0,0,0,0}
     };
@@ -38,12 +42,14 @@ public class ActivityGame extends AppCompatActivity {
     private TableLayout layoutCharacter;
     private TableLayout tabMove;
     private TableLayout layoutPotion;
+    private Intent i;
 
     // Différents actionner
     ImageButton btnTop;
     ImageButton btnRight;
     ImageButton btnLeft;
     ImageButton btnBottom;
+    ImageView btnPerso;
 
     Button btnPotion;
     Button btnPotionForce;
@@ -74,10 +80,8 @@ public class ActivityGame extends AppCompatActivity {
         btnPotion = (Button) findViewById(R.id.potion);
         btnPotion.setOnClickListener(listener_btnPotion);
 
-        Intent intent = getIntent();
-        init(intent);
-
-
+        i = getIntent();
+        init(i);
 
     }
     /*****************************************************************
@@ -92,20 +96,7 @@ public class ActivityGame extends AppCompatActivity {
      *              Instanciation et initialisation du personnage et des coordonnées
      ***********************************************************************************/
     public void initJoueur(Intent intent){
-        String classe = intent.getStringExtra("classe");
-        int level = intent.getIntExtra("level",0);
-        int force = intent.getIntExtra("force",0);
-        int magie = intent.getIntExtra("magie",0);
-        int pv = intent.getIntExtra("pv",0);
-        int defense = intent.getIntExtra("defense",0);
-        int pot_force = intent.getIntExtra("pot_force",0);
-        int pot_pv = intent.getIntExtra("pot_pv",0);
-        int pot_pm = intent.getIntExtra("pot_pm",0);
-        int nbr_perle = intent.getIntExtra("nbr_perle",0);
-        int coordX = intent.getIntExtra("coordX",4);
-        int coordY = intent.getIntExtra("coordY",7);
-        int map = intent.getIntExtra("map",1);
-        personnage = new Personnage(classe,level,force,magie,pv,defense,pot_force,pot_pv,pot_pm,nbr_perle,coordX,coordY,map);
+        personnage = (Personnage)intent.getSerializableExtra("joueur");
         coordCol = personnage.getCoordX();
         coordLig = personnage.getCoordY();
     }
@@ -184,6 +175,7 @@ public class ActivityGame extends AppCompatActivity {
          */
         TableRow tr;
         layoutLabirynthe = (TableLayout) findViewById(R.id.labyrinthe);
+        btnPerso = new ImageView(this);
         for(int i=lig-2;i<=lig+2;i++) {
             tr = new TableRow(this);
             layoutLabirynthe.addView(tr);
@@ -192,33 +184,49 @@ public class ActivityGame extends AppCompatActivity {
                 switch (map[i][j]) {
                     case 0:
                         image.setImageResource(R.drawable.tile_rocher);
+                        tr.addView(image);
+                        image.getLayoutParams().height=120;
+                        image.getLayoutParams().width=120;
                         break;
                     case 1:
                         image.setImageResource(R.drawable.tile_chemin);
+                        tr.addView(image);
+                        image.getLayoutParams().height=120;
+                        image.getLayoutParams().width=120;
                         break;
                     case 2:
                         image.setImageResource(R.drawable.tile_arbre);
+                        tr.addView(image);
+                        image.getLayoutParams().height=120;
+                        image.getLayoutParams().width=120;
+                        break;
+                    case 4:
+                        image.setImageResource(R.drawable.perle_petite);
+                        tr.addView(image);
+                        image.getLayoutParams().height=120;
+                        image.getLayoutParams().width=120;
                         break;
                     default:
                         switch(orientation){
                             case 1 :
-                                image.setImageResource(R.drawable.link_bas01);
+                                btnPerso.setImageResource(R.drawable.link_bas01);
                                 break;
                             case 2 :
-                                image.setImageResource(R.drawable.link_gauche);
+                                btnPerso.setImageResource(R.drawable.link_gauche);
                                 break;
                             case 3 :
-                                image.setImageResource(R.drawable.link_right);
+                                btnPerso.setImageResource(R.drawable.link_right);
                                 break;
                             case 4 :
-                                image.setImageResource(R.drawable.link_haut);
+                                btnPerso.setImageResource(R.drawable.link_haut);
                                 break;
                         }
+                        tr.addView(btnPerso);
+                        btnPerso.setOnClickListener(listener_btnPerso);
+                        btnPerso.getLayoutParams().height=120;
+                        btnPerso.getLayoutParams().width=120;
                         break;
                 }
-                tr.addView(image);
-                image.getLayoutParams().height=60;
-                image.getLayoutParams().width=60;
             }
         }
     }
@@ -420,4 +428,14 @@ public class ActivityGame extends AppCompatActivity {
         LigneBoutonPotion.addView(btnPotion);
         btnPotion.setOnClickListener(listener_btnPotion);
     }
+
+    private View.OnClickListener listener_btnPerso = new  View.OnClickListener(){
+        @Override
+        public void onClick(View v){
+            Intent intent = new Intent(ActivityGame.this,InfoJoueur.class);
+            intent.putExtras(i);
+            startActivity(intent);
+        }
+    };
+
 }
