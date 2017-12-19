@@ -1,5 +1,5 @@
 <?php
-/*
+header('Content-Type: application/json');
 $map = array(
        array(0,0,0,0,0,0,0,0,0,0,0,0,0),
        array(0,2,2,2,2,2,2,2,2,2,2,2,0),
@@ -14,17 +14,6 @@ $map = array(
        array(0,2,2,2,2,2,2,2,2,2,2,2,0),
        array(0,0,0,0,0,0,0,0,0,0,0,0,0)
     );
-
-echo "[";
-for($ligne=0;$ligne<$map[][11];$ligne++){
-	echo "["
-	for($col=0;$col<$map[i][].lenght;$col++){
-		echo $map[$ligne][$col];
-	}
-	echo "],";
-}
-echo "]";
-*/
-
-echo "map chargée";
+$json_map = json_encode($map);
+echo $json_map;
 ?>
