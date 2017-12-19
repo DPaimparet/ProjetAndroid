@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="txt_titre">12sp</dimen>
-    <dimen name="txt_size">10sp</dimen>
-    <dimen name="imageview_width">45dp</dimen>
-    <dimen name="imageview_height">45dp</dimen>
+    <dimen name="txt_size">8sp</dimen>
+    <dimen name="imageview_width">40dp</dimen>
+    <dimen name="imageview_height">40dp</dimen>
 </resources>

@@ -19,9 +19,9 @@
     <ImageView
         android:id="@+id/img_classe"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="99dp"
         android:layout_weight="1"
-        app:srcCompat="@drawable/hero_warrior_normal" />
+        app:srcCompat="@drawable/priest_normal" />
 
     <TableLayout
         android:id="@+id/tab_info_joueur"

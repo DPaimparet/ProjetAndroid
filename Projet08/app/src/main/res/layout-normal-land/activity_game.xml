@@ -86,20 +86,20 @@
                 <LinearLayout
                     android:id="@+id/layout_move"
                     android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginLeft="100dp"
                     android:orientation="vertical">
 
                     <TableLayout
                         android:id="@+id/move"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:gravity="center">
 
                         <TableRow
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent">
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
 
                             <ImageView />
 
@@ -113,8 +113,8 @@
                         </TableRow>
 
                         <TableRow
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent">
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
 
                             <ImageButton
                                 android:id="@+id/moveLeft"
@@ -132,8 +132,8 @@
                         </TableRow>
 
                         <TableRow
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent">
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
 
                             <ImageView />
 

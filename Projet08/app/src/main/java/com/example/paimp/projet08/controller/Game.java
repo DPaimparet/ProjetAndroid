@@ -16,9 +16,9 @@ import android.widget.Toast;
 import com.example.paimp.projet08.R;
 import com.example.paimp.projet08.model.GetMap;
 import com.example.paimp.projet08.model.Joueur;
+import com.example.paimp.projet08.model.MapJeu;
 
 public class Game extends AppCompatActivity {
-
 
     int map [][]= {
             {0,0,0,0,0,0,0,0,0,0,0,0,0},
@@ -34,8 +34,7 @@ public class Game extends AppCompatActivity {
             {0,2,2,2,2,2,2,2,2,2,2,2,0},
             {0,0,0,0,0,0,0,0,0,0,0,0,0}
     };
-
-    //int map[][];
+    private MapJeu mMap = new MapJeu();
     private Joueur mJoueur;
     private int coordLig;
     private int coordCol;
@@ -97,6 +96,7 @@ public class Game extends AppCompatActivity {
             chargerVueCaracteristiqueJoueur();
         }
         else{
+            //new GetMap(Game.this).execute(mMap);
             i = getIntent();
             init(i);
         }
@@ -130,7 +130,7 @@ public class Game extends AppCompatActivity {
      ****************************************************************/
     public void init(Intent intent){
         initJoueur(intent);
-        //new GetMap(Game.this).execute();
+        new GetMap(Game.this).execute();
         dessinerMap(coordLig,coordCol,1);
         chargerVueCaracteristiqueJoueur();
     }

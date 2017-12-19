@@ -44,32 +44,26 @@ public class CheckLoginTask extends AsyncTask<Login , Void , String> {
 
             ///////////////// Propriété de ma connexion  /////////////////
             connection.setRequestMethod("POST");
-            connection.setConnectTimeout(5000);
-            connection.setReadTimeout(5000);
+
+            ///////////////// requête  /////////////////
+
+            OutputStream os = connection.getOutputStream();
+            BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(os, "UTF-8"));
+            String parametres_post="txtUsername="+mLogin.getUserName()+"&txtPassword="+mLogin.getPassword();
+            writer.write(parametres_post);
+            writer.flush();
+            writer.close();
+            os.close();
 
             ///////////////// Connexion  /////////////////
+            connection.setConnectTimeout(5000);
+            connection.setReadTimeout(5000);
             connection.connect();
 
             int responseCode = connection.getResponseCode();
-            System.out.println(responseCode);
-            System.out.println(mLogin.getUserName());
-            System.out.println(mLogin.getPassword());
 
             if (responseCode == 200)
             {
-
-                ///////////////// requête  /////////////////
-
-                OutputStream os = connection.getOutputStream();
-                BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(os, "UTF-8"));
-                String parametres_post="txtUsername="+mLogin.getUserName()+"&txtPassword="+mLogin.getPassword();
-                connection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
-                connection.setRequestProperty("Content-Length", String.valueOf(parametres_post.length()));
-                writer.write(parametres_post);
-                writer.flush();
-                writer.close();
-                os.close();
-
                 ///////////////// réponse  /////////////////
                 InputStream inputStream;
                 inputStream=connection.getInputStream();
@@ -77,8 +71,6 @@ public class CheckLoginTask extends AsyncTask<Login , Void , String> {
                 inputStreamReader=new InputStreamReader(inputStream, "UTF-8");
                 Scanner scanner = new Scanner(inputStreamReader);
                 reponse = scanner.next();
-                System.out.println(reponse);
-                //reponse = "succes";
             }
             else
             {
@@ -94,19 +86,9 @@ public class CheckLoginTask extends AsyncTask<Login , Void , String> {
     }
 
     @Override
-    protected void onPreExecute() {
-        // Prétraitement de l'appel
-    }
-    @Override
-    protected void onProgressUpdate(Void... progress) {
-        // Gestion de l'avancement de la tâche
-
-    }
-
-    @Override
     protected void onPostExecute(String result) {
         // Callback
-        if(result == "succes"){
+        if(result.equals("success")){
             Intent intent = new Intent(activite,SelectClasse.class);
             activite.startActivity(intent);
         }
