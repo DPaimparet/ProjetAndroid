@@ -22,20 +22,6 @@ import java.util.concurrent.ExecutionException;
 
 public class Game extends AppCompatActivity {
 
-   /* int map [][]= {
-            {0,0,0,0,0,0,0,0,0,0,0,0,0},
-            {0,2,2,2,2,2,2,2,2,2,2,2,0},
-            {0,2,2,4,1,1,1,1,2,4,2,2,0},
-            {0,2,2,1,1,2,2,1,1,1,2,2,0},
-            {0,2,2,1,1,2,1,3,1,1,2,2,0},
-            {0,2,2,1,4,1,1,1,0,1,2,2,0},
-            {0,2,2,1,1,1,1,1,0,4,2,2,0},
-            {0,2,2,1,1,1,1,1,1,1,2,2,0},
-            {0,2,2,1,1,1,1,1,2,1,2,2,0},
-            {0,2,2,4,1,1,4,1,2,4,2,2,0},
-            {0,2,2,2,2,2,2,2,2,2,2,2,0},
-            {0,0,0,0,0,0,0,0,0,0,0,0,0}
-    }; */
     private MapJeu mMap = new MapJeu();
     int map [][] = new int[12][12];
     private Joueur mJoueur;
@@ -106,7 +92,7 @@ public class Game extends AppCompatActivity {
             } catch (ExecutionException e) {
                 e.printStackTrace();
             }
-            
+
             map=mMap.getMap();
             i = getIntent();
             init(i);
