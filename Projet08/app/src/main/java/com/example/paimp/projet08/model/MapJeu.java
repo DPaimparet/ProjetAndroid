@@ -8,6 +8,7 @@ import java.util.ArrayList;
 
 public class MapJeu {
     private int[][] map;
+
     public MapJeu(int[][] map) {
         this.map = map;
     }

@@ -14,6 +14,7 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
@@ -25,7 +26,8 @@ public class GetMap extends AsyncTask<MapJeu, Void, MapJeu> {
     Game activite;
     String result="";
     List<Integer> tabMap = new ArrayList<>();
-    int[][]tabMapJeu;
+    int[][]tabMapJeu = new int [12][13];
+    int ligne,col,valeur;
 
     public GetMap(Game activite){
         this.activite=activite;
@@ -46,7 +48,8 @@ public class GetMap extends AsyncTask<MapJeu, Void, MapJeu> {
             connection.setReadTimeout(5000);
 
             ///////////////// requête  /////////////////
-            connection.setRequestProperty("Content-Type", "text/plain");
+            connection.setRequestProperty("Content-Type", "application/json");
+            //connection.setRequestProperty("Content-Type", "text/plain");
             connection.setRequestProperty("charset", "utf-8");
 
             ///////////////// Connexion  /////////////////
@@ -61,49 +64,47 @@ public class GetMap extends AsyncTask<MapJeu, Void, MapJeu> {
                 InputStreamReader inputStreamReader;
                 inputStreamReader = new InputStreamReader(inputStream, "UTF-8");
 
-
                 ///////////////////// Récupération avec Scanner ///////////////////////
+                /*
                 Scanner scanner = new Scanner(inputStreamReader);
                 //scanner.useDelimiter(",");
                 while (scanner.hasNext()) {
                     result += scanner.next();
                 }
-                System.out.println(result);
                 scanner.close();
-
+                System.out.println(result);
+                */
                 ///////////////////// Récupération du JSON ///////////////////////
-                int i;
-                try (JsonReader jsonReader = new JsonReader(inputStreamReader)) {
+
+                JsonReader jsonReader = new JsonReader(inputStreamReader);
+                jsonReader.beginArray();
+                System.out.println("//////// Début tableau 2 dim ////////");
+                ligne=0;
+                while (jsonReader.hasNext()) {
                     jsonReader.beginArray();
-                    i = 0;
+                    System.out.println("///// Début du tableau " + (ligne+1) + " à 1 dim //////  ");
+                    col=0;
                     while (jsonReader.hasNext()) {
-                        jsonReader.beginArray();
-                        while (jsonReader.hasNext()) tabMap.add(jsonReader.nextInt());
-                        jsonReader.endArray();
-                        ///////////////////// converti l'Array en int[]  ///////////////////////
-                        int[] ligne = toIntArray(tabMap);
-                        tabMapJeu[i] = ligne;
-                        i++;
+                        valeur = jsonReader.nextInt();
+                        System.out.println("Ligne => " + ligne + " Colonne => " + col + " Valeur => "+valeur);
+                        tabMapJeu[ligne][col]=valeur;
+                        col++;
                     }
+                    System.out.println("///// Fin du tableau " + (ligne+1) + " à 1 dim //////  ");
                     jsonReader.endArray();
-                    jsonReader.close();
+                    ligne++;
                 }
+                System.out.println("///// Fin tableau 2 dim //////  ");
+                jsonReader.endArray();
+                jsonReader.close();
 
-                for(i=0;i<tabMapJeu.length;i++){
-                    for(int j = 0 ; j < tabMapJeu[i].length;j++){
-                        System.out.println(tabMapJeu[i][j]);
-                    }
-                }
-
-            }
-            else
-            {
-                tabMapJeu = null;
             }
 
         }catch (MalformedURLException e){
             e.printStackTrace();
         }catch (IOException e){
+            e.printStackTrace();
+        }catch (InputMismatchException e){
             e.printStackTrace();
         }
         MapJeu mapJeu = new MapJeu(tabMapJeu);
@@ -118,13 +119,5 @@ public class GetMap extends AsyncTask<MapJeu, Void, MapJeu> {
         } else {
 
         }
-    }
-
-    public int[] toIntArray(List<Integer> list)  {
-        int[] ret = new int[list.size()];
-        int i = 0;
-        for (Integer e : list)
-            ret[i++] = e.intValue();
-        return ret;
     }
 }
