@@ -96,7 +96,7 @@ public class Game extends AppCompatActivity {
             chargerVueCaracteristiqueJoueur();
         }
         else{
-            //new GetMap(Game.this).execute(mMap);
+            new GetMap(Game.this).execute(mMap);
             i = getIntent();
             init(i);
         }
@@ -130,7 +130,7 @@ public class Game extends AppCompatActivity {
      ****************************************************************/
     public void init(Intent intent){
         initJoueur(intent);
-        new GetMap(Game.this).execute();
+        new GetMap(Game.this).execute(mMap);
         dessinerMap(coordLig,coordCol,1);
         chargerVueCaracteristiqueJoueur();
     }

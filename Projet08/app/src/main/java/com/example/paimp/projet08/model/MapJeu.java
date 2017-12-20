@@ -1,12 +1,13 @@
 package com.example.paimp.projet08.model;
 
+import java.util.ArrayList;
+
 /**
  * Created by Paimp on 18-12-17.
  */
 
 public class MapJeu {
     private int[][] map;
-
     public MapJeu(int[][] map) {
         this.map = map;
     }
