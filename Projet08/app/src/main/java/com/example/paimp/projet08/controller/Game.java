@@ -18,9 +18,11 @@ import com.example.paimp.projet08.model.GetMap;
 import com.example.paimp.projet08.model.Joueur;
 import com.example.paimp.projet08.model.MapJeu;
 
+import java.util.concurrent.ExecutionException;
+
 public class Game extends AppCompatActivity {
 
-    int map [][]= {
+   /* int map [][]= {
             {0,0,0,0,0,0,0,0,0,0,0,0,0},
             {0,2,2,2,2,2,2,2,2,2,2,2,0},
             {0,2,2,4,1,1,1,1,2,4,2,2,0},
@@ -33,8 +35,9 @@ public class Game extends AppCompatActivity {
             {0,2,2,4,1,1,4,1,2,4,2,2,0},
             {0,2,2,2,2,2,2,2,2,2,2,2,0},
             {0,0,0,0,0,0,0,0,0,0,0,0,0}
-    };
+    }; */
     private MapJeu mMap = new MapJeu();
+    int map [][] = new int[12][12];
     private Joueur mJoueur;
     private int coordLig;
     private int coordCol;
@@ -96,8 +99,15 @@ public class Game extends AppCompatActivity {
             chargerVueCaracteristiqueJoueur();
         }
         else{
-            new GetMap(Game.this).execute(mMap);
-            //map=mMap.getMap();
+            try {
+                mMap = new GetMap(Game.this).execute().get();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            } catch (ExecutionException e) {
+                e.printStackTrace();
+            }
+            
+            map=mMap.getMap();
             i = getIntent();
             init(i);
         }

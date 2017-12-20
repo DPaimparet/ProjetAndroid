@@ -28,6 +28,7 @@ public class GetMap extends AsyncTask<MapJeu, Void, MapJeu> {
     List<Integer> tabMap = new ArrayList<>();
     int[][]tabMapJeu = new int [12][13];
     int ligne,col,valeur;
+    public MapJeu mapJeu;
 
     public GetMap(Game activite){
         this.activite=activite;
@@ -107,7 +108,7 @@ public class GetMap extends AsyncTask<MapJeu, Void, MapJeu> {
         }catch (InputMismatchException e){
             e.printStackTrace();
         }
-        MapJeu mapJeu = new MapJeu(tabMapJeu);
+        mapJeu = new MapJeu(tabMapJeu);
         return mapJeu;
     }
 
